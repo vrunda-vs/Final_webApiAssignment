@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebApiDemo_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="booking">
+    <Key>
+      <PropertyRef Name="booking_id" />
+    </Key>
+    <Property Name="booking_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="room_id" Type="Int32" />
+    <Property Name="booking_date" Type="DateTime" Precision="0" />
+    <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Hotel">
+    <Key>
+      <PropertyRef Name="Hotel_ID" />
+    </Key>
+    <Property Name="Hotel_ID" Type="Int32" Nullable="false" />
+    <Property Name="hotel_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hotel_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hotel_city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hotel_pincode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hotel_mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hotel_contact_person" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="facebook" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="twitter" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="updated_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="room">
+    <Key>
+      <PropertyRef Name="Room_Id" />
+    </Key>
+    <Property Name="Room_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Hotel_ID" Type="Int32" />
+    <Property Name="room_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="room_category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="room_price" Type="Double" />
+    <Property Name="isactive" Type="Int32" />
+    <Property Name="created_date" Type="DateTime" Precision="0" />
+    <Property Name="updated_date" Type="DateTime" Precision="0" />
+    <Property Name="updated_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="WebApiDemo_DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="bookings" EntityType="Self.booking" />
+    <EntitySet Name="Hotels" EntityType="Self.Hotel" />
+    <EntitySet Name="rooms" EntityType="Self.room" />
+  </EntityContainer>
+</Schema>

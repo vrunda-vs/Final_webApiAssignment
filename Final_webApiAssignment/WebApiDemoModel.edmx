@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WebApiDemo_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="booking">
+          <Key>
+            <PropertyRef Name="booking_id" />
+          </Key>
+          <Property Name="booking_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="room_id" Type="int" />
+          <Property Name="booking_date" Type="date" />
+          <Property Name="status" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Hotels">
+          <Key>
+            <PropertyRef Name="Hotel_ID" />
+          </Key>
+          <Property Name="Hotel_ID" Type="int" Nullable="false" />
+          <Property Name="hotel_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="hotel_address" Type="nvarchar" MaxLength="50" />
+          <Property Name="hotel_city" Type="nvarchar" MaxLength="50" />
+          <Property Name="hotel_pincode" Type="nvarchar" MaxLength="50" />
+          <Property Name="hotel_mno" Type="nvarchar" MaxLength="50" />
+          <Property Name="hotel_contact_person" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="website" Type="nvarchar" MaxLength="100" />
+          <Property Name="facebook" Type="nvarchar" MaxLength="100" />
+          <Property Name="twitter" Type="nvarchar" MaxLength="100" />
+          <Property Name="isactive" Type="int" />
+          <Property Name="created_by" Type="nvarchar" MaxLength="50" />
+          <Property Name="updated_by" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="rooms">
+          <Key>
+            <PropertyRef Name="Room_Id" />
+          </Key>
+          <Property Name="Room_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hotel_ID" Type="int" />
+          <Property Name="room_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="room_category" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="room_price" Type="float" />
+          <Property Name="isactive" Type="int" />
+          <Property Name="created_date" Type="date" />
+          <Property Name="updated_date" Type="date" />
+          <Property Name="updated_by" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="WebApiDemo_DBModelStoreContainer">
+          <EntitySet Name="booking" EntityType="Self.booking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hotels" EntityType="Self.Hotels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rooms" EntityType="Self.rooms" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WebApiDemo_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="booking">
+          <Key>
+            <PropertyRef Name="booking_id" />
+          </Key>
+          <Property Name="booking_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="room_id" Type="Int32" />
+          <Property Name="booking_date" Type="DateTime" Precision="0" />
+          <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Hotel">
+          <Key>
+            <PropertyRef Name="Hotel_ID" />
+          </Key>
+          <Property Name="Hotel_ID" Type="Int32" Nullable="false" />
+          <Property Name="hotel_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hotel_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hotel_city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hotel_pincode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hotel_mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hotel_contact_person" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="facebook" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="twitter" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="updated_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="room">
+          <Key>
+            <PropertyRef Name="Room_Id" />
+          </Key>
+          <Property Name="Room_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hotel_ID" Type="Int32" />
+          <Property Name="room_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="room_category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="room_price" Type="Double" />
+          <Property Name="isactive" Type="Int32" />
+          <Property Name="created_date" Type="DateTime" Precision="0" />
+          <Property Name="updated_date" Type="DateTime" Precision="0" />
+          <Property Name="updated_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="WebApiDemo_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bookings" EntityType="Self.booking" />
+          <EntitySet Name="Hotels" EntityType="Self.Hotel" />
+          <EntitySet Name="rooms" EntityType="Self.room" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WebApiDemo_DBModelStoreContainer" CdmEntityContainer="WebApiDemo_DBEntities">
+          <EntitySetMapping Name="bookings">
+            <EntityTypeMapping TypeName="WebApiDemo_DBModel.booking">
+              <MappingFragment StoreEntitySet="booking">
+                <ScalarProperty Name="booking_id" ColumnName="booking_id" />
+                <ScalarProperty Name="room_id" ColumnName="room_id" />
+                <ScalarProperty Name="booking_date" ColumnName="booking_date" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hotels">
+            <EntityTypeMapping TypeName="WebApiDemo_DBModel.Hotel">
+              <MappingFragment StoreEntitySet="Hotels">
+                <ScalarProperty Name="Hotel_ID" ColumnName="Hotel_ID" />
+                <ScalarProperty Name="hotel_name" ColumnName="hotel_name" />
+                <ScalarProperty Name="hotel_address" ColumnName="hotel_address" />
+                <ScalarProperty Name="hotel_city" ColumnName="hotel_city" />
+                <ScalarProperty Name="hotel_pincode" ColumnName="hotel_pincode" />
+                <ScalarProperty Name="hotel_mno" ColumnName="hotel_mno" />
+                <ScalarProperty Name="hotel_contact_person" ColumnName="hotel_contact_person" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="facebook" ColumnName="facebook" />
+                <ScalarProperty Name="twitter" ColumnName="twitter" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rooms">
+            <EntityTypeMapping TypeName="WebApiDemo_DBModel.room">
+              <MappingFragment StoreEntitySet="rooms">
+                <ScalarProperty Name="Room_Id" ColumnName="Room_Id" />
+                <ScalarProperty Name="Hotel_ID" ColumnName="Hotel_ID" />
+                <ScalarProperty Name="room_name" ColumnName="room_name" />
+                <ScalarProperty Name="room_category" ColumnName="room_category" />
+                <ScalarProperty Name="room_price" ColumnName="room_price" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+                <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

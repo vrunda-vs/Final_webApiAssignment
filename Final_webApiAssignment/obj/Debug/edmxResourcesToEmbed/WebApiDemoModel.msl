@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WebApiDemo_DBModelStoreContainer" CdmEntityContainer="WebApiDemo_DBEntities">
+    <EntitySetMapping Name="bookings">
+      <EntityTypeMapping TypeName="WebApiDemo_DBModel.booking">
+        <MappingFragment StoreEntitySet="booking">
+          <ScalarProperty Name="booking_id" ColumnName="booking_id" />
+          <ScalarProperty Name="room_id" ColumnName="room_id" />
+          <ScalarProperty Name="booking_date" ColumnName="booking_date" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hotels">
+      <EntityTypeMapping TypeName="WebApiDemo_DBModel.Hotel">
+        <MappingFragment StoreEntitySet="Hotels">
+          <ScalarProperty Name="Hotel_ID" ColumnName="Hotel_ID" />
+          <ScalarProperty Name="hotel_name" ColumnName="hotel_name" />
+          <ScalarProperty Name="hotel_address" ColumnName="hotel_address" />
+          <ScalarProperty Name="hotel_city" ColumnName="hotel_city" />
+          <ScalarProperty Name="hotel_pincode" ColumnName="hotel_pincode" />
+          <ScalarProperty Name="hotel_mno" ColumnName="hotel_mno" />
+          <ScalarProperty Name="hotel_contact_person" ColumnName="hotel_contact_person" />
+          <ScalarProperty Name="website" ColumnName="website" />
+          <ScalarProperty Name="facebook" ColumnName="facebook" />
+          <ScalarProperty Name="twitter" ColumnName="twitter" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rooms">
+      <EntityTypeMapping TypeName="WebApiDemo_DBModel.room">
+        <MappingFragment StoreEntitySet="rooms">
+          <ScalarProperty Name="Room_Id" ColumnName="Room_Id" />
+          <ScalarProperty Name="Hotel_ID" ColumnName="Hotel_ID" />
+          <ScalarProperty Name="room_name" ColumnName="room_name" />
+          <ScalarProperty Name="room_category" ColumnName="room_category" />
+          <ScalarProperty Name="room_price" ColumnName="room_price" />
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+          <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
